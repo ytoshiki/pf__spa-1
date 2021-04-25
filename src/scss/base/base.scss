@@ -1,0 +1,20 @@
+@use 'variables' as *;
+@use "fonts";
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Nunito', 'Poppins', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $font-sub-color;
+}

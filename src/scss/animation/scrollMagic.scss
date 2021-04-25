@@ -1,0 +1,10 @@
+.example-cube {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all ease 0.9s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0);
+}

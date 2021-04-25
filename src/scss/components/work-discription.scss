@@ -1,0 +1,97 @@
+@use "../base/variables.scss" as *;
+
+.c-work-discription {
+  display: flex;
+  width: 100%;
+  font-size: 1.7rem;
+  margin-top: 7rem;
+  padding-top: 3rem;
+  margin-bottom: 12rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.2rem;
+    width: 22rem;
+    background: $primary-color;
+  }
+  &__left {
+    width: calc(50%-10px);
+
+    margin-right: 20px;
+    position: relative;
+    z-index: 2;
+
+    &.is-img {
+      overflow: hidden;
+
+      height: 33.6rem;
+
+      img {
+        width: 100%;
+        display: block;
+        transition: all ease 1.4s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &__right {
+    width: calc(50%-10px);
+    position: relative;
+    z-index: 2;
+    &.is-img {
+      overflow: hidden;
+      height: 64rem;
+      img {
+        width: 100%;
+        display: block;
+        transition: all ease 1.4s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    left: auto;
+    top: 0%;
+    right: 0%;
+    bottom: auto;
+    width: 70%;
+    height: 100%;
+    background-color: #f1e2d8;
+  }
+}
+
+.c-work-discription {
+  &.is-md {
+    justify-content: center !important;
+    padding-bottom: 3rem;
+    .c-work-discription {
+      &__left {
+        width: 40%;
+        margin-right: 3rem;
+      }
+
+      &__right {
+        width: 40%;
+      }
+    }
+  }
+
+  &.is-bg {
+    &::before {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+// Settings
+@use "base/fonts.scss";
+@use "base/reset.scss";
+@use "base/base.scss";
+@use "animation/loading.scss";
+
+// Layouts
+@use "layout/container.scss";
+
+// Components
+@use 'components/header.scss';
+@use "components/heading.scss";
+@use "components/about-top.scss";
+@use "components/work-top.scss";
+@use "components/work-discription.scss";
+@use "components/scrollMagic-top.scss";
+@use "components/magic.scss";
+
+// Animations
+@use "animation/fade.scss";
+@use "animation/barba.scss";
+@use "animation/scrollMagic.scss";

@@ -1,0 +1,24 @@
+@use "../base/variables.scss" as *;
+
+header {
+  margin-top: 9rem;
+  color: $font-sub-color;
+  nav {
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    list-style: none;
+    margin-right: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    letter-spacing: 0;
+    font-size: 2rem;
+  }
+}

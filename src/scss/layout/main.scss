@@ -1,0 +1,8 @@
+@use "../base/variables.scss" as *;
+
+.l-main {
+  &.bg-black {
+    background-color: $font-base-color !important;
+    color: #fff !important;
+  }
+}

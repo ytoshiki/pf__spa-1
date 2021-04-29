@@ -1,0 +1,35 @@
+.c-heading {
+  &.is-xlg {
+    span {
+      font-size: 6.2rem;
+      line-height: 1.5;
+      letter-spacing: 0.1em;
+      display: block;
+    }
+
+    small {
+      font-size: 2rem;
+      margin-top: 2rem;
+      display: block;
+    }
+  }
+
+  &.is-lg {
+    span {
+      font-size: 4.2rem;
+      line-height: 1.5;
+      letter-spacing: 0.1em;
+      display: block;
+    }
+
+    small {
+      font-size: 2rem;
+      display: block;
+    }
+  }
+
+  &.is-right {
+    margin-left: auto;
+    width: calc(168px + ((100% - 264px) / 12 * 8));
+  }
+}

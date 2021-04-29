@@ -1,0 +1,19 @@
+.c-box-studio-values {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__heading {
+  }
+  &__list {
+  }
+
+  &__text {
+    font-size: 4rem;
+    line-height: 2;
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+}

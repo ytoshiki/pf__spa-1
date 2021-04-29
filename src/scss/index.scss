@@ -2,11 +2,22 @@
 @use "base/fonts.scss";
 @use "base/reset.scss";
 @use "base/base.scss";
-@use "animation/loading.scss";
 
 // Layouts
 @use "layout/container.scss";
+@use "layout/footer.scss";
+@use "layout/section.scss";
+@use "layout/main.scss";
 
 // Components
+@use "components/heading.scss";
+@use "components/header.scss";
+@use "components/block-appoach-title.scss";
+@use "components/block-approach-img.scss";
+@use "components/box-approach-services.scss";
+
+@use "components/block-studio-images.scss";
+@use "components/box-studio-values.scss";
 
 // Animations
+@use "loading/index.scss";

@@ -1,0 +1,13 @@
+@use '../base/variables.scss' as *;
+
+.loading {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 0;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $font-base-color;
+}

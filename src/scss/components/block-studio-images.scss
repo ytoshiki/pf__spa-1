@@ -1,0 +1,24 @@
+.c-block-studio-images {
+  overflow: hidden;
+
+  width: 100%;
+  display: flex;
+
+  &__block {
+    width: calc(50% - 1.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40rem;
+    overflow: hidden;
+
+    &:first-child {
+      margin-right: 3rem;
+    }
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}

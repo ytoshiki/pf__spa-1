@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="dist/app.css" />
+    <link rel="stylesheet" href="../dist/app.css" />
   </head>
   <body data-barba="wrapper">
     <div class="loading"></div>
 
-    <main data-barba="container" data-barba-namespace="home">
+    <main data-barba="container" data-barba-namespace="studio" class="l-main bg-black">
       <header>
         <nav>
           <ul>
             <li><a href="">Contact</a></li>
-            <li><a href="./pages/studio.html">Studio</a></li>
-            <li><a href="./">Approach</a></li>
-            <li><a href="./pages/works.html">Works</a></li>
+            <li><a href="./">Studio</a></li>
+            <li><a href="../">Approach</a></li>
+            <li><a href="./works.html">Works</a></li>
           </ul>
         </nav>
       </header>
@@ -25,55 +25,39 @@
         <div class="l-container">
           <div class="c-block-approach-title">
             <h1 class="c-heading is-xlg is-right">
-              <span>We design great products that have long lasting value.</span>
-              <small>In order to make the world a slightly better place.</small>
+              <span>Terio is a studio for design, growth and good ideas.</span>
             </h1>
           </div>
         </div>
       </section>
       <section>
         <div class="l-container">
-          <div class="c-block-approach-img">
-            <img class="animate-img" src="./dist/assets/images/img-approach-01.jpg" alt="" />
+          <div class="c-block-studio-images">
+            <div class="c-block-studio-images__block">
+              <img class="c-block-studio-images__img" src="../dist/assets/images/img-studio-01.jpg" alt="" />
+            </div>
+            <div class="c-block-studio-images__block">
+              <img class="c-block-studio-images__img" src="../dist/assets/images/img-studio-02.jpg" alt="" />
+            </div>
           </div>
         </div>
       </section>
-      <section class="l-section is-lg">
+      <section class="l-section is-xlg">
         <div class="l-container">
-          <div class="c-box-approach-services">
-            <div class="c-box-approach-services__heading">
-              <h2 class="c-heading is-lg">
-                <span>Our Services</span>
-              </h2>
-            </div>
-
-            <div class="c-box-approach-services__list">
-              <div class="c-box-approach-services__title">
-                Web Design
-                <br />
-                iOS Design
-                <br />
-                User Experience
-                <br />
-                Branding
-                <br />
-                Digital Strategy
-                <br />66666 Development
+          <div class="c-box-studio-values">
+            <div class="c-box-studio-values__inner">
+              <div class="c-box-studio-values__heading">
+                <h2 class="c-heading is-lg">
+                  <span>Our Values</span>
+                </h2>
               </div>
-              <div class="c-box-approach-services__text">
-                Copywriting
-                <br />
-                Animation
-                <br />
-                Icongraphy
-                <br />
-                2D/3D graphics
-                <br />
-                HTML/CSS/JS
-                <br />
-                Backend/API integrations
-                <br />
-                WorkPress
+
+              <div class="c-box-studio-values__list">
+                <div class="c-box-studio-values__text">Making a difference.</div>
+                <div class="c-box-studio-values__text">Delivering quality.</div>
+                <div class="c-box-studio-values__text">Helping others.</div>
+                <div class="c-box-studio-values__text">Being completely honest.</div>
+                <div class="c-box-studio-values__text">Being a great team member.</div>
               </div>
             </div>
           </div>
@@ -117,6 +101,6 @@
       </footer>
     </main>
     <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CIntersectionObserver"></script>
-    <script src="dist/app.js"></script>
+    <script src="../dist/app.js"></script>
   </body>
 </html>

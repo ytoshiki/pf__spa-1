@@ -2,46 +2,88 @@ import barba from '@barba/core';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-const tl = gsap.timeline();
 import { topPageScroll } from '../gsap/index';
 import { defaultLoading } from '../gsap/loading';
 import { studioPageScroll } from '../gsap/studio';
+import { worksPageScroll, worksReveal } from '../gsap/works';
 
 // leave is executed when leaving
 // Enter is executed when entering
 
 const paths = {
   top: '/index.html',
-  work: '/pages/works.html',
-  studio: '/pages/studio.html'
+  topOne: '/',
+  work: '/works.html',
+  studio: '/studio.html'
 };
+
+const killOldTriggers = () => {
+  let triggers = ScrollTrigger.getAll();
+  triggers.forEach((trigger) => {
+    trigger.kill();
+  });
+
+  console.log('killed');
+};
+
+barba.hooks.beforeEnter(({ current, next }) => {
+  var beforeEnterPromiseAll = new Promise(function (resolve) {
+    killOldTriggers();
+
+    resolve();
+  });
+
+  return beforeEnterPromiseAll;
+});
+
+barba.hooks.enter(({ current, next }) => {
+  var enterPromiseAll = new Promise(function (resolve) {
+    current.container.remove();
+
+    resolve();
+  });
+
+  return enterPromiseAll;
+});
 
 barba.init({
   // to is used to specify which to which
+
   sync: true,
   transitions: [
     {
+      name: 'default transition',
       async leave(data) {
         const done = this.async();
         defaultLoading();
-
         done();
       },
       async enter(data) {
         if (data.next.url.path == paths.top) {
-          // Scroll Trigger
-          topPageScroll();
-        }
+          gsap.from('.c-block-approach-title', {
+            y: 20,
+            opacity: 0,
+            duration: 2,
+            delay: 0.75
+          });
 
-        gsap.from('.c-block-approach-title', {
-          y: 20,
-          opacity: 0,
-          duration: 2,
-          delay: 0.75
-        });
+          topPageScroll();
+        } else if (data.next.url.path == paths.studio) {
+          return studioPageScroll();
+        } else if (data.next.url.path == paths.work) {
+          worksReveal();
+          worksPageScroll();
+        }
       },
       once(data) {
-        if (data.next.url.path == paths.top) {
+        if (data.next.url.path == paths.studio) {
+          defaultLoading();
+          studioPageScroll();
+        } else if (data.next.url.path == paths.work) {
+          defaultLoading();
+          worksReveal();
+          worksPageScroll();
+        } else {
           defaultLoading();
 
           gsap.from('.c-block-approach-title', {
@@ -53,10 +95,6 @@ barba.init({
 
           // Scroll Trigger
           topPageScroll();
-        } else if (data.next.url.path == paths.studio) {
-          defaultLoading();
-
-          studioPageScroll();
         }
       }
     }

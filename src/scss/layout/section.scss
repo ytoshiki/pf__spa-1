@@ -4,6 +4,14 @@
   }
   &.is-xlg {
     margin-top: 12rem;
-    margin-bottom: 12rem;
+    margin-bottom: 30rem;
+  }
+
+  &.is-top {
+    margin-bottom: 0 !important;
+  }
+
+  &.is-bottom {
+    margin-top: 0 !important;
   }
 }

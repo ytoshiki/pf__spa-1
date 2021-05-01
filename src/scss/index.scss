@@ -18,6 +18,12 @@
 
 @use "components/block-studio-images.scss";
 @use "components/box-studio-values.scss";
+@use "components/box-studio-staff.scss";
+@use "components/box-studio-accent.scss";
+@use "components/box-studio-job.scss";
+@use "components/box-works-accent.scss";
+@use "components/block-works-list.scss";
+@use "components/block-works-top.scss";
 
 // Animations
 @use "loading/index.scss";

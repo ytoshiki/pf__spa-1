@@ -1,0 +1,53 @@
+@use "../base/variables.scss" as *;
+
+.c-box-works-accent {
+  overflow: hidden;
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
+  &__title {
+    font-size: 9rem;
+    width: calc(100% - 380px);
+    line-height: 1.2;
+  }
+
+  &__text {
+    font-size: 2.3rem;
+    position: relative;
+    line-height: 1.5;
+    width: 50rem;
+    margin-left: 8rem;
+    padding-top: 3rem;
+
+    &::after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0.1rem;
+      background-color: rgba($font-base-color, 0.4);
+    }
+  }
+
+  &__fade {
+    display: inline-block;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 100%;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #fff;
+    }
+  }
+}

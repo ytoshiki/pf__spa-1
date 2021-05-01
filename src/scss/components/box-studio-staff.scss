@@ -1,0 +1,65 @@
+.c-box-studio-staff {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__heading {
+    white-space: nowrap;
+    margin-right: 7rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    max-width: 70rem;
+  }
+
+  &__item {
+    width: calc(50% - 16px);
+    height: 100%;
+
+    margin-bottom: 4rem;
+
+    &:nth-child(even) {
+      margin-left: 3.2rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    overflow: hidden;
+
+    height: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    padding: 3rem 0;
+  }
+
+  &__name {
+    font-size: 2.4rem;
+    line-height: 2;
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+}

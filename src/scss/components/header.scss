@@ -31,4 +31,10 @@ header {
     color: $font-base-color;
     mix-blend-mode: difference;
   }
+
+  &.is-white {
+    a {
+      color: #fff !important;
+    }
+  }
 }

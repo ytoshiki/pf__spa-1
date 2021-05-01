@@ -1,9 +1,9 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-const tl = gsap.timeline();
 
 export const topPageScroll = () => {
+  // console.log('top called');
   gsap.to('.animate-img', {
     scrollTrigger: {
       trigger: '.c-block-approach-img',

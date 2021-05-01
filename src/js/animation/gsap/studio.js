@@ -1,19 +1,27 @@
 import gsap from 'gsap';
+import { CSSRulePlugin } from 'gsap/all';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
-const tl = gsap.timeline();
+gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 
 export const studioPageScroll = () => {
-  const scrollEndHeight = document.querySelector('.c-box-studio-values__list').clientHeight;
+  const scrollEndHeightValue = document.querySelector('.c-box-studio-values__list').clientHeight;
+  const scrollEndHeightStaff = document.querySelector('.c-box-studio-staff__list').clientHeight;
 
-  console.log(window.innerHeight / 10);
+  gsap.from('.c-block-approach-title', {
+    y: 20,
+    opacity: 0,
+    duration: 2,
+    delay: 0.75
+  });
+
+  // Animation for Values
   gsap.to('.c-box-studio-values__heading', {
+    duration: 1,
     scrollTrigger: {
       trigger: '.c-box-studio-values__inner',
       start: 'top 10%',
       pin: '.c-box-studio-values__heading',
-      end: `top -${scrollEndHeight - 160}px`,
-      markers: true
+      end: `top -${scrollEndHeightValue - 160}px`
     }
   });
 
@@ -24,9 +32,7 @@ export const studioPageScroll = () => {
     y: 30,
     scrollTrigger: {
       trigger: 'c-box-studio-values__list',
-      start: 'top top',
-
-      markers: true
+      start: 'top top'
     }
   });
 
@@ -36,8 +42,45 @@ export const studioPageScroll = () => {
     delay: 0.2,
     scrollTrigger: {
       trigger: 'c-box-studio-values__images',
-      start: 'top top',
-      markers: true
+      start: 'top top'
+    }
+  });
+
+  // Animation for accent text
+
+  gsap.fromTo(
+    CSSRulePlugin.getRule('.c-box-studio-accent__fade:before'),
+    {
+      left: 0
+    },
+    {
+      left: '100%',
+      duration: 1,
+      ease: 'Expo.easeInOut',
+      scrollTrigger: {
+        trigger: '.c-box-studio-accent',
+        start: 'top center'
+      }
+    }
+  );
+
+  gsap.from('.c-box-studio-accent__text', {
+    y: 30,
+    duration: 1.2,
+    opacity: 0,
+    scrollTrigger: {
+      trigger: '.c-box-studio-accent',
+      start: 'top center'
+    }
+  });
+
+  // Animation for staff
+  gsap.to('.c-box-studio-staff__heading', {
+    scrollTrigger: {
+      trigger: '.c-box-studio-staff__inner',
+      start: 'top 10%',
+      pin: '.c-box-studio-staff__heading',
+      end: `top -${scrollEndHeightStaff - 170}px`
     }
   });
 };

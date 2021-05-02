@@ -1,0 +1,43 @@
+.c-box-approach-about {
+  &__heading {
+    margin-bottom: 8rem;
+  }
+
+  &__list {
+  }
+
+  &__item {
+    border-top: 1px solid rgba($color: #111, $alpha: 0.3);
+    padding: 7rem 1rem;
+
+    &:last-child {
+      border-bottom: 1px solid rgba($color: #111, $alpha: 0.3);
+    }
+
+    &-block {
+      display: flex;
+    }
+
+    &-left {
+      display: flex;
+      font-size: 3.5rem;
+      min-width: 30rem;
+
+      span {
+        font-weight: bold;
+        display: inline-block;
+
+        &.is-num {
+          font-size: 1.8rem;
+          margin-right: 2rem;
+        }
+      }
+    }
+
+    &-right {
+      font-size: 2rem;
+      line-height: 1.4;
+      margin-left: 5rem;
+    }
+  }
+}

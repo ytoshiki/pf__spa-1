@@ -18696,10 +18696,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_barba_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
-/* harmony import */ var _gsap_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../gsap/index */ "./src/js/animation/gsap/index.js");
-/* harmony import */ var _gsap_loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../gsap/loading */ "./src/js/animation/gsap/loading.js");
-/* harmony import */ var _gsap_studio__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../gsap/studio */ "./src/js/animation/gsap/studio.js");
-/* harmony import */ var _gsap_works__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../gsap/works */ "./src/js/animation/gsap/works.js");
+/* harmony import */ var _gsap_contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../gsap/contact */ "./src/js/animation/gsap/contact.js");
+/* harmony import */ var _gsap_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../gsap/index */ "./src/js/animation/gsap/index.js");
+/* harmony import */ var _gsap_loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../gsap/loading */ "./src/js/animation/gsap/loading.js");
+/* harmony import */ var _gsap_studio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../gsap/studio */ "./src/js/animation/gsap/studio.js");
+/* harmony import */ var _gsap_works__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../gsap/works */ "./src/js/animation/gsap/works.js");
+
 
 
 
@@ -18716,7 +18718,8 @@ const paths = {
   top: '/index.html',
   topOne: '/',
   work: '/works.html',
-  studio: '/studio.html'
+  studio: '/studio.html',
+  contact: '/contact.html'
 };
 
 const killOldTriggers = () => {
@@ -18741,7 +18744,6 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.beforeEnter(({ current,
 _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.enter(({ current, next }) => {
   var enterPromiseAll = new Promise(function (resolve) {
     current.container.remove();
-
     resolve();
   });
 
@@ -18757,7 +18759,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
       name: 'default transition',
       async leave(data) {
         const done = this.async();
-        Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_4__["defaultLoading"])();
+        Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
         done();
       },
       async enter(data) {
@@ -18769,24 +18771,29 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
             delay: 0.75
           });
 
-          Object(_gsap_index__WEBPACK_IMPORTED_MODULE_3__["topPageScroll"])();
+          Object(_gsap_index__WEBPACK_IMPORTED_MODULE_4__["topPageScroll"])();
         } else if (data.next.url.path == paths.studio) {
-          return Object(_gsap_studio__WEBPACK_IMPORTED_MODULE_5__["studioPageScroll"])();
+          Object(_gsap_studio__WEBPACK_IMPORTED_MODULE_6__["studioPageScroll"])();
+        } else if (data.next.url.path == paths.contact) {
+          Object(_gsap_contact__WEBPACK_IMPORTED_MODULE_3__["contactPageReveal"])();
         } else if (data.next.url.path == paths.work) {
-          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_6__["worksReveal"])();
-          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_6__["worksPageScroll"])();
+          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_7__["worksReveal"])();
+          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_7__["worksPageScroll"])();
         }
       },
       once(data) {
         if (data.next.url.path == paths.studio) {
-          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_4__["defaultLoading"])();
-          Object(_gsap_studio__WEBPACK_IMPORTED_MODULE_5__["studioPageScroll"])();
+          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
+          Object(_gsap_studio__WEBPACK_IMPORTED_MODULE_6__["studioPageScroll"])();
         } else if (data.next.url.path == paths.work) {
-          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_4__["defaultLoading"])();
-          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_6__["worksReveal"])();
-          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_6__["worksPageScroll"])();
+          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
+          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_7__["worksReveal"])();
+          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_7__["worksPageScroll"])();
+        } else if (data.next.url.path == paths.contact) {
+          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
+          Object(_gsap_contact__WEBPACK_IMPORTED_MODULE_3__["contactPageReveal"])();
         } else {
-          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_4__["defaultLoading"])();
+          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
 
           gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from('.c-block-approach-title', {
             y: 20,
@@ -18796,7 +18803,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
           });
 
           // Scroll Trigger
-          Object(_gsap_index__WEBPACK_IMPORTED_MODULE_3__["topPageScroll"])();
+          Object(_gsap_index__WEBPACK_IMPORTED_MODULE_4__["topPageScroll"])();
         }
       }
     }
@@ -18942,6 +18949,54 @@ const studioPageScroll = () => {
       end: 'top 30%',
       markers: true
     }
+  });
+};
+
+
+/***/ }),
+
+/***/ "./src/js/animation/gsap/contact.js":
+/*!******************************************!*\
+  !*** ./src/js/animation/gsap/contact.js ***!
+  \******************************************/
+/*! exports provided: contactPageReveal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contactPageReveal", function() { return contactPageReveal; });
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/all.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__["default"].registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__["default"], gsap_all__WEBPACK_IMPORTED_MODULE_1__["CSSRulePlugin"]);
+
+const contactPageReveal = () => {
+  const tl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
+
+  tl.from('.c-block-contact-title__title', {
+    y: 20,
+    opacity: 0,
+    duration: 1,
+    delay: 0.3
+  })
+    .from('.c-block-contact__address', {
+      y: 20,
+      opacity: 0,
+      duration: 0.4
+    })
+    .from('.c-form', {
+      y: 20,
+      opacity: 0,
+      duration: 0.4
+    });
+
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-block-contact-title__img', {
+    opacity: 0,
+    duration: 2,
+    delay: 2
   });
 };
 
@@ -19351,9 +19406,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./src/js/app.js ./src/js/animation/function.js ./src/js/animation/index.js ./src/js/animation/barba/index.js ./src/js/animation/gsap/index.js ./src/js/animation/gsap/loading.js ./src/js/animation/gsap/studio.js ./src/js/animation/gsap/works.js ./src/js/animation/gsap copy/index.js ./src/js/animation/gsap copy/loading.js ./src/js/animation/gsap copy/studio.js ./src/js/animation/parallex/index.js ./src/js/animation/scrollMagic/index.js ./src/js/animation/scrollReveal/index.js ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./src/js/app.js ./src/js/animation/function.js ./src/js/animation/index.js ./src/js/animation/barba/index.js ./src/js/animation/gsap/contact.js ./src/js/animation/gsap/index.js ./src/js/animation/gsap/loading.js ./src/js/animation/gsap/studio.js ./src/js/animation/gsap/works.js ./src/js/animation/gsap copy/index.js ./src/js/animation/gsap copy/loading.js ./src/js/animation/gsap copy/studio.js ./src/js/animation/parallex/index.js ./src/js/animation/scrollMagic/index.js ./src/js/animation/scrollReveal/index.js ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19361,6 +19416,7 @@ __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\a
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\function.js */"./src/js/animation/function.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\index.js */"./src/js/animation/index.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\barba\index.js */"./src/js/animation/barba/index.js");
+__webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\contact.js */"./src/js/animation/gsap/contact.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\index.js */"./src/js/animation/gsap/index.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\loading.js */"./src/js/animation/gsap/loading.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\studio.js */"./src/js/animation/gsap/studio.js");

@@ -1,6 +1,7 @@
 import barba from '@barba/core';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { contactPageReveal } from '../gsap/contact';
 gsap.registerPlugin(ScrollTrigger);
 import { topPageScroll } from '../gsap/index';
 import { defaultLoading } from '../gsap/loading';
@@ -14,7 +15,8 @@ const paths = {
   top: '/index.html',
   topOne: '/',
   work: '/works.html',
-  studio: '/studio.html'
+  studio: '/studio.html',
+  contact: '/contact.html'
 };
 
 const killOldTriggers = () => {
@@ -39,7 +41,6 @@ barba.hooks.beforeEnter(({ current, next }) => {
 barba.hooks.enter(({ current, next }) => {
   var enterPromiseAll = new Promise(function (resolve) {
     current.container.remove();
-
     resolve();
   });
 
@@ -69,7 +70,9 @@ barba.init({
 
           topPageScroll();
         } else if (data.next.url.path == paths.studio) {
-          return studioPageScroll();
+          studioPageScroll();
+        } else if (data.next.url.path == paths.contact) {
+          contactPageReveal();
         } else if (data.next.url.path == paths.work) {
           worksReveal();
           worksPageScroll();
@@ -83,6 +86,9 @@ barba.init({
           defaultLoading();
           worksReveal();
           worksPageScroll();
+        } else if (data.next.url.path == paths.contact) {
+          defaultLoading();
+          contactPageReveal();
         } else {
           defaultLoading();
 

@@ -12,6 +12,7 @@ header {
   justify-content: center;
   align-items: center;
 
+
   ul {
     display: flex;
     flex-direction: column;
@@ -28,13 +29,14 @@ header {
   }
 
   a {
-    color: $font-base-color;
-    mix-blend-mode: difference;
+    color: #6b6a6a;
+  
+
   }
 
   &.is-white {
     a {
-      color: #fff !important;
+      color:#878686 !important;
     }
   }
 }

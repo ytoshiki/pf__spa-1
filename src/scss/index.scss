@@ -13,8 +13,11 @@
 @use "components/heading.scss";
 @use "components/header.scss";
 @use "components/block-appoach-title.scss";
+@use "components/block-contact-title.scss";
+@use "components/block-contact-address.scss";
 @use "components/block-approach-img.scss";
 @use "components/box-approach-services.scss";
+@use "components/box-approach-about.scss";
 
 @use "components/block-studio-images.scss";
 @use "components/box-studio-values.scss";
@@ -24,6 +27,7 @@
 @use "components/box-works-accent.scss";
 @use "components/block-works-list.scss";
 @use "components/block-works-top.scss";
+@use "components/form.scss";
 
 // Animations
 @use "loading/index.scss";

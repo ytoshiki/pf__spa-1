@@ -18696,11 +18696,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_barba_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
-/* harmony import */ var _gsap_contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../gsap/contact */ "./src/js/animation/gsap/contact.js");
-/* harmony import */ var _gsap_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../gsap/index */ "./src/js/animation/gsap/index.js");
-/* harmony import */ var _gsap_loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../gsap/loading */ "./src/js/animation/gsap/loading.js");
-/* harmony import */ var _gsap_studio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../gsap/studio */ "./src/js/animation/gsap/studio.js");
-/* harmony import */ var _gsap_works__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../gsap/works */ "./src/js/animation/gsap/works.js");
+/* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../script */ "./src/js/script.js");
+/* harmony import */ var _gsap_contact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../gsap/contact */ "./src/js/animation/gsap/contact.js");
+/* harmony import */ var _gsap_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../gsap/index */ "./src/js/animation/gsap/index.js");
+/* harmony import */ var _gsap_loading__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../gsap/loading */ "./src/js/animation/gsap/loading.js");
+/* harmony import */ var _gsap_studio__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../gsap/studio */ "./src/js/animation/gsap/studio.js");
+/* harmony import */ var _gsap_works__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../gsap/works */ "./src/js/animation/gsap/works.js");
+
 
 
 
@@ -18747,6 +18749,8 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.enter(({ current, next 
     resolve();
   });
 
+  new _script__WEBPACK_IMPORTED_MODULE_3__["default"]();
+
   return enterPromiseAll;
 });
 
@@ -18759,11 +18763,18 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
       name: 'default transition',
       async leave(data) {
         const done = this.async();
-        Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
+        Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_6__["defaultLoading"])();
         done();
       },
       async enter(data) {
-        if (data.next.url.path == paths.top) {
+        if (data.next.url.path == paths.studio) {
+          Object(_gsap_studio__WEBPACK_IMPORTED_MODULE_7__["studioPageScroll"])();
+        } else if (data.next.url.path == paths.contact) {
+          Object(_gsap_contact__WEBPACK_IMPORTED_MODULE_4__["contactPageReveal"])();
+        } else if (data.next.url.path == paths.work) {
+          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_8__["worksReveal"])();
+          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_8__["worksPageScroll"])();
+        } else {
           gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from('.c-block-approach-title', {
             y: 20,
             opacity: 0,
@@ -18771,29 +18782,23 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
             delay: 0.75
           });
 
-          Object(_gsap_index__WEBPACK_IMPORTED_MODULE_4__["topPageScroll"])();
-        } else if (data.next.url.path == paths.studio) {
-          Object(_gsap_studio__WEBPACK_IMPORTED_MODULE_6__["studioPageScroll"])();
-        } else if (data.next.url.path == paths.contact) {
-          Object(_gsap_contact__WEBPACK_IMPORTED_MODULE_3__["contactPageReveal"])();
-        } else if (data.next.url.path == paths.work) {
-          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_7__["worksReveal"])();
-          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_7__["worksPageScroll"])();
+          Object(_gsap_index__WEBPACK_IMPORTED_MODULE_5__["topPageScroll"])();
         }
       },
       once(data) {
+        new _script__WEBPACK_IMPORTED_MODULE_3__["default"]();
         if (data.next.url.path == paths.studio) {
-          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
-          Object(_gsap_studio__WEBPACK_IMPORTED_MODULE_6__["studioPageScroll"])();
+          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_6__["defaultLoading"])();
+          Object(_gsap_studio__WEBPACK_IMPORTED_MODULE_7__["studioPageScroll"])();
         } else if (data.next.url.path == paths.work) {
-          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
-          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_7__["worksReveal"])();
-          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_7__["worksPageScroll"])();
+          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_6__["defaultLoading"])();
+          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_8__["worksReveal"])();
+          Object(_gsap_works__WEBPACK_IMPORTED_MODULE_8__["worksPageScroll"])();
         } else if (data.next.url.path == paths.contact) {
-          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
-          Object(_gsap_contact__WEBPACK_IMPORTED_MODULE_3__["contactPageReveal"])();
+          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_6__["defaultLoading"])();
+          Object(_gsap_contact__WEBPACK_IMPORTED_MODULE_4__["contactPageReveal"])();
         } else {
-          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_5__["defaultLoading"])();
+          Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_6__["defaultLoading"])();
 
           gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from('.c-block-approach-title', {
             y: 20,
@@ -18803,7 +18808,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
           });
 
           // Scroll Trigger
-          Object(_gsap_index__WEBPACK_IMPORTED_MODULE_4__["topPageScroll"])();
+          Object(_gsap_index__WEBPACK_IMPORTED_MODULE_5__["topPageScroll"])();
         }
       }
     }
@@ -19020,6 +19025,7 @@ __webpack_require__.r(__webpack_exports__);
 gsap__WEBPACK_IMPORTED_MODULE_0__["default"].registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 const topPageScroll = () => {
+  const tl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
   // console.log('top called');
   gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to('.animate-img', {
     scrollTrigger: {
@@ -19031,30 +19037,58 @@ const topPageScroll = () => {
     duration: 3
   });
 
-  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-box-approach-services__heading', {
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to('.c-box-banner__span', {
     scrollTrigger: {
-      trigger: '.c-box-approach-services__heading',
-      start: 'top center'
+      trigger: '.c-box-banner',
+      start: 'top bottom'
     },
-
-    y: 20,
-    opacity: 0,
-    delay: 0.4,
-
-    duration: 1
+    translateX: 0,
+    duration: 2
   });
 
-  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-box-approach-services__list', {
+  // gsap.from('.c-box-approach-services__heading', {
+  //   scrollTrigger: {
+  //     trigger: '.c-box-approach-services__heading',
+  //     start: 'top center'
+  //   },
+
+  //   y: 20,
+  //   opacity: 0,
+  //   delay: 0.4,
+
+  //   duration: 1
+  // });
+
+  // gsap.from('.c-box-approach-services__list', {
+  //   scrollTrigger: {
+  //     trigger: '.c-box-approach-services__list',
+  //     start: 'top center'
+  //   },
+
+  //   y: 20,
+  //   opacity: 0,
+  //   delay: 0.4,
+
+  //   duration: 1
+  // });
+
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-box-approach-services__img', {
     scrollTrigger: {
-      trigger: '.c-box-approach-services__list',
+      trigger: '.c-box-approach-services',
       start: 'top center'
     },
-
-    y: 20,
     opacity: 0,
-    delay: 0.4,
+    duration: 0.7
+  });
 
-    duration: 1
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-box-approach-services__description', {
+    scrollTrigger: {
+      trigger: '.c-box-approach-services',
+      start: 'top 30%'
+    },
+    opacity: 0,
+    x: 80,
+    duration: 0.5
   });
 };
 
@@ -19400,19 +19434,189 @@ const triggerScrollMagic = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animation */ "./src/js/animation/index.js");
+/* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./script */ "./src/js/script.js");
 
+
+
+// window.addEventListener('load', () => {
+//   new EventListener();
+// });
+
+
+/***/ }),
+
+/***/ "./src/js/script.js":
+/*!**************************!*\
+  !*** ./src/js/script.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/all.js");
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__["default"].registerPlugin(gsap_all__WEBPACK_IMPORTED_MODULE_1__["CSSRulePlugin"]);
+
+class EventListener {
+  constructor() {
+    this.init();
+    this.targets = {
+      webMob: {
+        name: 'web&amp;mobile development',
+        text: 'From your initial concept to your final product, we will guide you through the process of building a quality application aligned with your business objectives.',
+        img: 'img-works-01.jpg',
+        index: 0
+      },
+      front: {
+        name: 'front-end development',
+        text: 'We offer professional conversion of your designs created in Sketch, Figma or Adobe XD to modern, maintainable and fast front-end.',
+        img: 'frontend.jpg',
+        index: 1
+      },
+      back: {
+        name: 'back-end development',
+        text: 'We build fast, scalable and secure Ruby on Rails or PHP back-end applications with integrated external APIs or custom one built according to your requirements.',
+        img: 'backend.jpg',
+        index: 2
+      },
+      ui: {
+        name: 'ux/ui design',
+        text: 'Let us translate your concept into a great user experience and highly usable user interface, whether it’s a web, mobile application or a corporate website.',
+        img: 'ui.jpg',
+        index: 3
+      }
+    };
+  }
+
+  init() {
+    this.toggleList = document.querySelectorAll('.c-box-approach-services__item');
+    this.image = document.querySelector('.c-box-approach-services__jpg');
+    this.title = document.querySelector('.c-box-approach-services__title');
+    this.body = document.querySelector('.c-box-approach-services__text');
+
+    if (!this.toggleList.length || !this.image || !this.title || !this.body) return;
+
+    this.listen();
+  }
+
+  listen() {
+    this.toggleList.forEach((list) => {
+      list.querySelector('span').addEventListener(
+        'click',
+        (e) => {
+          this.text = e.target.innerHTML.toLowerCase().trim();
+          this.callback();
+        },
+        false
+      );
+    });
+  }
+
+  callback() {
+    if (this.text == this.targets.front.name) {
+      this.animateImage();
+      setTimeout(() => {
+        this.changeContent(this.targets.front);
+        this.toggleClass(this.targets.front.index);
+        return;
+      }, 1000);
+    } else if (this.text === this.targets.back.name) {
+      this.animateImage();
+
+      setTimeout(() => {
+        this.changeContent(this.targets.back);
+        this.toggleClass(this.targets.back.index);
+        return;
+      }, 1000);
+    } else if (this.text === this.targets.webMob.name) {
+      this.animateImage();
+      setTimeout(() => {
+        this.changeContent(this.targets.webMob);
+        this.toggleClass(this.targets.webMob.index);
+        return;
+      }, 1000);
+    } else if (this.text === this.targets.ui.name) {
+      this.animateImage();
+      setTimeout(() => {
+        this.changeContent(this.targets.ui);
+        this.toggleClass(this.targets.ui.index);
+
+        return;
+      }, 1000);
+    }
+
+    console.log('No Match');
+    return;
+  }
+
+  changeContent(target) {
+    this.image.src = `./dist/assets/images/${target.img}`;
+
+    this.title.innerHTML = target.name;
+    this.body.innerHTML = target.text;
+    this.toggleClass(target.index);
+  }
+
+  toggleClass(index) {
+    this.toggleList.forEach((list) => {
+      if (list.className.includes('is-active')) {
+        list.classList.remove('is-active');
+      }
+    });
+
+    this.toggleList[index].classList.add('is-active');
+  }
+
+  animateImage() {
+    const tl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
+    tl.to(gsap_all__WEBPACK_IMPORTED_MODULE_1__["CSSRulePlugin"].getRule('.c-box-approach-services__img:before'), {
+      width: '100%',
+      duration: 1,
+      ease: 'Expo.easeInOut'
+    }).to(gsap_all__WEBPACK_IMPORTED_MODULE_1__["CSSRulePlugin"].getRule('.c-box-approach-services__img:before'), {
+      left: '100%',
+      duration: 1,
+      ease: 'Expo.easeInOut'
+    });
+
+    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(
+      '.c-box-approach-services__description',
+      {
+        opacity: 0,
+        x: 60
+      },
+      {
+        opacity: 1,
+        duration: 0.8,
+        delay: 1.5,
+        x: 0
+      }
+    );
+
+    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(gsap_all__WEBPACK_IMPORTED_MODULE_1__["CSSRulePlugin"].getRule('.c-box-approach-services__img:before'), {
+      width: 0,
+      left: 0
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (EventListener);
 
 
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./src/js/app.js ./src/js/animation/function.js ./src/js/animation/index.js ./src/js/animation/barba/index.js ./src/js/animation/gsap/contact.js ./src/js/animation/gsap/index.js ./src/js/animation/gsap/loading.js ./src/js/animation/gsap/studio.js ./src/js/animation/gsap/works.js ./src/js/animation/gsap copy/index.js ./src/js/animation/gsap copy/loading.js ./src/js/animation/gsap copy/studio.js ./src/js/animation/parallex/index.js ./src/js/animation/scrollMagic/index.js ./src/js/animation/scrollReveal/index.js ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./src/js/app.js ./src/js/script.js ./src/js/animation/function.js ./src/js/animation/index.js ./src/js/animation/barba/index.js ./src/js/animation/gsap/contact.js ./src/js/animation/gsap/index.js ./src/js/animation/gsap/loading.js ./src/js/animation/gsap/studio.js ./src/js/animation/gsap/works.js ./src/js/animation/gsap copy/index.js ./src/js/animation/gsap copy/loading.js ./src/js/animation/gsap copy/studio.js ./src/js/animation/parallex/index.js ./src/js/animation/scrollMagic/index.js ./src/js/animation/scrollReveal/index.js ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\app.js */"./src/js/app.js");
+__webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\script.js */"./src/js/script.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\function.js */"./src/js/animation/function.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\index.js */"./src/js/animation/index.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\barba\index.js */"./src/js/animation/barba/index.js");

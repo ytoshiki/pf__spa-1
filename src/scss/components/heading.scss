@@ -1,8 +1,8 @@
 .c-heading {
   &.is-xlg {
     span {
-      font-size: 6.2rem;
-      line-height: 1.5;
+      font-size: 7.2rem;
+      line-height: 1.4;
       letter-spacing: 0.1em;
       display: block;
     }
@@ -11,6 +11,7 @@
       font-size: 2rem;
       margin-top: 2rem;
       display: block;
+      font-weight: normal;
     }
   }
 
@@ -20,6 +21,18 @@
       line-height: 1.5;
       letter-spacing: 0.1em;
       display: block;
+      padding-bottom: 3rem;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 10rem;
+        background: rgba($color: #111, $alpha: 0.6);
+      }
     }
 
     small {

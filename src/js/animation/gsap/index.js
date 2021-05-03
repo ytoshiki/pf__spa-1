@@ -3,6 +3,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export const topPageScroll = () => {
+  const tl = gsap.timeline();
   // console.log('top called');
   gsap.to('.animate-img', {
     scrollTrigger: {
@@ -14,29 +15,57 @@ export const topPageScroll = () => {
     duration: 3
   });
 
-  gsap.from('.c-box-approach-services__heading', {
+  gsap.to('.c-box-banner__span', {
     scrollTrigger: {
-      trigger: '.c-box-approach-services__heading',
-      start: 'top center'
+      trigger: '.c-box-banner',
+      start: 'top bottom'
     },
-
-    y: 20,
-    opacity: 0,
-    delay: 0.4,
-
-    duration: 1
+    translateX: 0,
+    duration: 2
   });
 
-  gsap.from('.c-box-approach-services__list', {
+  // gsap.from('.c-box-approach-services__heading', {
+  //   scrollTrigger: {
+  //     trigger: '.c-box-approach-services__heading',
+  //     start: 'top center'
+  //   },
+
+  //   y: 20,
+  //   opacity: 0,
+  //   delay: 0.4,
+
+  //   duration: 1
+  // });
+
+  // gsap.from('.c-box-approach-services__list', {
+  //   scrollTrigger: {
+  //     trigger: '.c-box-approach-services__list',
+  //     start: 'top center'
+  //   },
+
+  //   y: 20,
+  //   opacity: 0,
+  //   delay: 0.4,
+
+  //   duration: 1
+  // });
+
+  gsap.from('.c-box-approach-services__img', {
     scrollTrigger: {
-      trigger: '.c-box-approach-services__list',
+      trigger: '.c-box-approach-services',
       start: 'top center'
     },
-
-    y: 20,
     opacity: 0,
-    delay: 0.4,
+    duration: 0.7
+  });
 
-    duration: 1
+  gsap.from('.c-box-approach-services__description', {
+    scrollTrigger: {
+      trigger: '.c-box-approach-services',
+      start: 'top 30%'
+    },
+    opacity: 0,
+    x: 80,
+    duration: 0.5
   });
 };

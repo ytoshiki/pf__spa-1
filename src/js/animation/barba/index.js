@@ -1,6 +1,7 @@
 import barba from '@barba/core';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import EventListener from '../../script';
 import { contactPageReveal } from '../gsap/contact';
 gsap.registerPlugin(ScrollTrigger);
 import { topPageScroll } from '../gsap/index';
@@ -44,6 +45,8 @@ barba.hooks.enter(({ current, next }) => {
     resolve();
   });
 
+  new EventListener();
+
   return enterPromiseAll;
 });
 
@@ -60,7 +63,14 @@ barba.init({
         done();
       },
       async enter(data) {
-        if (data.next.url.path == paths.top) {
+        if (data.next.url.path == paths.studio) {
+          studioPageScroll();
+        } else if (data.next.url.path == paths.contact) {
+          contactPageReveal();
+        } else if (data.next.url.path == paths.work) {
+          worksReveal();
+          worksPageScroll();
+        } else {
           gsap.from('.c-block-approach-title', {
             y: 20,
             opacity: 0,
@@ -69,16 +79,10 @@ barba.init({
           });
 
           topPageScroll();
-        } else if (data.next.url.path == paths.studio) {
-          studioPageScroll();
-        } else if (data.next.url.path == paths.contact) {
-          contactPageReveal();
-        } else if (data.next.url.path == paths.work) {
-          worksReveal();
-          worksPageScroll();
         }
       },
       once(data) {
+        new EventListener();
         if (data.next.url.path == paths.studio) {
           defaultLoading();
           studioPageScroll();

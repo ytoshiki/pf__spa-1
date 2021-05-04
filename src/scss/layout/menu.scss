@@ -1,0 +1,41 @@
+.l-menu {
+  width: 100%;
+  z-index: 99;
+  height: 100vh;
+  background: #fff;
+  position: fixed;
+  top: 6rem;
+  left: 0;
+  display: none;
+
+  justify-content: center;
+
+  &.visible {
+    display: flex;
+  }
+
+  &__list {
+    margin-top: 12rem;
+  }
+
+  &__item {
+    font-size: 5rem;
+    line-height: 2;
+
+    @media only screen and (max-width: 750px) {
+      font-size: 3.6rem;
+    }
+
+    a {
+      color: #111;
+    }
+  }
+
+  &.is-black {
+    background: #111;
+
+    a {
+      color: #fff !important;
+    }
+  }
+}

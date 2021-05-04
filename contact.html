@@ -11,10 +11,39 @@
     <div class="loading"></div>
 
     <main data-barba="container" data-barba-namespace="contact">
+      <div class="l-main-header">
+        <div class="l-main-header__logo">
+          <img src="./dist/assets/images/logo.png" alt="" />
+        </div>
+        <div class="l-main-header__menu">
+          <div class="l-main-header__container">
+            <div class="l-main-header__bar1 bar"></div>
+            <div class="l-main-header__bar2 bar"></div>
+            <div class="l-main-header__bar3 bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-menu">
+        <ul class="l-menu__list">
+          <li class="l-menu__item">
+            <a href="./works.html"> Works </a>
+          </li>
+          <li class="l-menu__item">
+            <a href="./index.html"> Approach </a>
+          </li>
+          <li class="l-menu__item">
+            <a href="./studio.html"> Studio </a>
+          </li>
+          <li class="l-menu__item">
+            <a href="./contact.html"> Contact </a>
+          </li>
+        </ul>
+      </div>
       <header>
         <nav>
           <ul>
-            <li><a href="./contact.html">Contact</a></li>
+            <li class="is-current"><a href="./contact.html">Contact</a></li>
             <li><a href="./studio.html">Studio</a></li>
             <li><a href="./">Approach</a></li>
             <li><a href="./works.html">Works</a></li>
@@ -22,7 +51,7 @@
         </nav>
       </header>
 
-      <section class="l-section is-xlg">
+      <section class="l-section is-xlg is-main">
         <div class="l-container">
           <div class="c-block-contact-title">
             <div class="c-block-contact-title__title">
@@ -55,27 +84,22 @@
             <form action="">
               <div class="c-form__block">
                 <div class="c-form__input">
-                  <label for="">First name*</label>
-                  <input type="text" name="first-name" />
+                  <input type="text" name="first-name" placeholder="First name*" />
                 </div>
                 <div class="c-form__input">
-                  <label for="">Last name*</label>
-                  <input type="text" name="last-name" />
+                  <input type="text" name="last-name" placeholder="Last name*" />
                 </div>
               </div>
               <div class="c-form__block">
                 <div class="c-form__input">
-                  <label for="">E-mail*</label>
-                  <input type="text" name="e-mail" />
+                  <input type="text" name="e-mail" placeholder="E-mail*" />
                 </div>
                 <div class="c-form__input">
-                  <label for="">Telephone*</label>
-                  <input type="text" name="telephone" />
+                  <input type="text" name="telephone" placeholder="Telephone*" />
                 </div>
               </div>
               <div class="c-form__textarea">
-                <label for="">Message*</label>
-                <textarea name="message" id="" cols="30" rows="10"></textarea>
+                <textarea name="message" id="" cols="30" rows="10" placeholder="Message"></textarea>
               </div>
               <div class="c-form__privacy">
                 <input type="checkbox" name="privacy" />

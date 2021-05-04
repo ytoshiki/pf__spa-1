@@ -50,6 +50,17 @@ export const topPageScroll = () => {
   //   duration: 1
   // });
 
+  gsap.from('.c-box-approach-about__item', {
+    scrollTrigger: {
+      trigger: '.c-box-approach-about__list',
+      start: 'top center'
+    },
+    opacity: 0,
+    y: 30,
+    duration: 0.7,
+    stagger: 0.2
+  });
+
   gsap.from('.c-box-approach-services__img', {
     scrollTrigger: {
       trigger: '.c-box-approach-services',

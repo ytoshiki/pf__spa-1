@@ -1,10 +1,11 @@
 import gsap from 'gsap';
 import { CSSRulePlugin } from 'gsap/all';
+import { interpolate } from 'gsap/gsap-core';
 gsap.registerPlugin(CSSRulePlugin);
 
 class EventListener {
   constructor() {
-    this.init();
+    (this.initial = true), this.init();
     this.targets = {
       webMob: {
         name: 'web&amp;mobile development',
@@ -34,6 +35,16 @@ class EventListener {
   }
 
   init() {
+    // For Each Page(Menu)
+
+    this.menu = document.querySelector('.l-main-header__container');
+    this.initial = true;
+
+    if (this.menu) {
+      this.listenMenu();
+    }
+
+    // For Index Page
     this.toggleList = document.querySelectorAll('.c-box-approach-services__item');
     this.image = document.querySelector('.c-box-approach-services__jpg');
     this.title = document.querySelector('.c-box-approach-services__title');
@@ -54,6 +65,39 @@ class EventListener {
         },
         false
       );
+    });
+  }
+
+  listenMenu() {
+    const menuHidden = document.querySelector('.l-menu');
+
+    let tl = gsap.timeline();
+
+    this.menu.addEventListener('click', (e) => {
+      if (!this.menu.className.includes('change')) {
+        if (this.initial) {
+          tl.from('.l-menu__item', {
+            opacity: 0,
+            y: 20,
+            stagger: 0.1,
+            duration: 0.3
+          });
+
+          this.initial = false;
+        } else {
+          tl.restart();
+        }
+
+        this.menu.classList.toggle('change');
+        menuHidden.classList.toggle('visible');
+      } else {
+        tl.reverse();
+
+        setTimeout(() => {
+          this.menu.classList.toggle('change');
+          menuHidden.classList.toggle('visible');
+        }, 1000);
+      }
     });
   }
 
@@ -90,7 +134,6 @@ class EventListener {
       }, 1000);
     }
 
-    console.log('No Match');
     return;
   }
 

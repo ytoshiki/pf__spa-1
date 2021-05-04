@@ -11,25 +11,54 @@
     <div class="loading"></div>
 
     <main data-barba="container" data-barba-namespace="work">
+      <div class="l-main-header">
+        <div class="l-main-header__logo">
+          <img src="./dist/assets/images/logo.png" alt="" />
+        </div>
+        <div class="l-main-header__menu">
+          <div class="l-main-header__container">
+            <div class="l-main-header__bar1 bar"></div>
+            <div class="l-main-header__bar2 bar"></div>
+            <div class="l-main-header__bar3 bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-menu">
+        <ul class="l-menu__list">
+          <li class="l-menu__item">
+            <a href="./works.html"> Works </a>
+          </li>
+          <li class="l-menu__item">
+            <a href="./index.html"> Approach </a>
+          </li>
+          <li class="l-menu__item">
+            <a href="./studio.html"> Studio </a>
+          </li>
+          <li class="l-menu__item">
+            <a href="./contact.html"> Contact </a>
+          </li>
+        </ul>
+      </div>
       <header>
         <nav>
           <ul>
             <li><a href="./contact.html">Contact</a></li>
             <li><a href="./studio.html">Studio</a></li>
             <li><a href="./index.html">Approach</a></li>
-            <li><a href="./works.html">Works</a></li>
+            <li class="is-current"><a href="./works.html">Works</a></li>
           </ul>
         </nav>
       </header>
-      <section>
+      <section class="l-section is-xlg is-main">
         <div class="l-container">
           <div class="c-block-works-top">
             <div class="c-block-works-top__inner">
               <div class="c-block-works-top__image">
-                <img src="/dist/assets/images/img-works-02.jpg" alt="" />
+                <img src="/dist/assets/images/img-works-01.jpg" alt="" />
               </div>
               <div class="c-block-works-top__title">
-                <h1 class="c-heading is-xlg is-right">
+                <h1 class="c-heading is-xlg is-center">
                   <span>Our Work</span>
                   <small>We bring Idea To A Product</small>
                 </h1>
@@ -39,7 +68,7 @@
         </div>
       </section>
 
-      <section class="l-section is-xlg">
+      <section class="l-section is-xlg is-bottom">
         <div class="l-container">
           <div class="c-box-works-accent">
             <div class="c-box-works-accent__block">
@@ -58,12 +87,24 @@
         </div>
       </section>
 
-      <section class="l-section is-xlg">
-        <div class="l-container"></div>
+      <section class="l-section is-xlg is-bottom is-hidden">
+        <div class="l-container">
+          <div class="c-box-works-parallex">
+            <div class="c-box-works-parallex__left">
+              <img src="./dist/assets/images/img-works-02.jpg" alt="" />
+            </div>
+            <div class="c-box-works-parallex__right rellax" data-rellax-speed="-2">
+              <img src="./dist/assets/images/img-works-04.jpg" alt="" />
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="l-section is-xlg">
+      <section class="l-section is-xlg is-bottom">
         <div class="l-container">
+          <h1 class="c-heading is-lg">
+            <span>Case Studies</span>
+          </h1>
           <div class="c-block-works-list">
             <ul class="c-block-works-list__list">
               <li class="c-block-works-list__item">
@@ -114,48 +155,6 @@
                 <img src="/dist/assets/images/icon-03.png" alt="" />
               </li> -->
             </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="l-section is-lg">
-        <div class="l-container">
-          <div class="c-box-approach-services">
-            <div class="c-box-approach-services__heading">
-              <h2 class="c-heading is-lg">
-                <span>Our Services</span>
-              </h2>
-            </div>
-
-            <div class="c-box-approach-services__list">
-              <div class="c-box-approach-services__title">
-                Web Design
-                <br />
-                iOS Design
-                <br />
-                User Experience
-                <br />
-                Branding
-                <br />
-                Digital Strategy
-                <br />66666 Development
-              </div>
-              <div class="c-box-approach-services__text">
-                Copywriting
-                <br />
-                Animation
-                <br />
-                Icongraphy
-                <br />
-                2D/3D graphics
-                <br />
-                HTML/CSS/JS
-                <br />
-                Backend/API integrations
-                <br />
-                WorkPress
-              </div>
-            </div>
           </div>
         </div>
       </section>

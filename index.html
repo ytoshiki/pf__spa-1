@@ -9,19 +9,50 @@
   </head>
   <body data-barba="wrapper">
     <div class="loading"></div>
+   
 
     <main data-barba="container" data-barba-namespace="home">
+
+      <div class="l-main-header">
+        <div class="l-main-header__logo">
+          <img src="./dist/assets/images/logo.png" alt="" />
+        </div>
+        <div class="l-main-header__menu">
+          <div class="l-main-header__container">
+            <div class="l-main-header__bar1 bar"></div>
+            <div class="l-main-header__bar2 bar"></div>
+            <div class="l-main-header__bar3 bar"></div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="l-menu">
+        <ul class="l-menu__list">
+          <li class="l-menu__item">
+            <a href="./works.html"> Works </a>
+          </li>
+          <li class="l-menu__item">
+            <a href="./index.html"> Approach </a>
+          </li>
+          <li class="l-menu__item">
+            <a href="./studio.html"> Studio </a>
+          </li>
+          <li class="l-menu__item">
+            <a href="./contact.html"> Contact </a>
+          </li>
+        </ul>
+      </div>
       <header>
         <nav>
           <ul>
             <li><a href="./contact.html">Contact</a></li>
             <li><a href="./studio.html">Studio</a></li>
-            <li><a href="./">Approach</a></li>
+            <li class="is-current"><a href="./">Approach</a></li>
             <li><a href="./works.html">Works</a></li>
           </ul>
         </nav>
       </header>
-      <section>
+      <section class="l-section is-xlg is-main">
         <div class="l-container">
           <div class="c-block-approach-title">
             <h1 class="c-heading is-xlg is-right">

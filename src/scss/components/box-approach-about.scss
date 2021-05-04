@@ -1,6 +1,10 @@
 .c-box-approach-about {
   &__heading {
     margin-bottom: 8rem;
+
+    @media only screen and (max-width: 1100px) {
+      margin-bottom: 5rem;
+    }
   }
 
   &__list {
@@ -10,18 +14,34 @@
     border-top: 1px solid rgba($color: #111, $alpha: 0.3);
     padding: 7rem 1rem;
 
+    @media only screen and (max-width: 1100px) {
+      padding: 4rem 1rem;
+    }
+
+    @media only screen and (max-width: 750px) {
+      padding: 2rem 0;
+    }
+
     &:last-child {
       border-bottom: 1px solid rgba($color: #111, $alpha: 0.3);
     }
 
     &-block {
       display: flex;
+      @media only screen and (max-width: 750px) {
+        flex-direction: column;
+      }
     }
 
     &-left {
       display: flex;
       font-size: 3.5rem;
       min-width: 30rem;
+
+      @media only screen and (max-width: 1100px) {
+        font-size: 2.6rem;
+        min-width: 23rem;
+      }
 
       span {
         font-weight: bold;
@@ -38,6 +58,15 @@
       font-size: 2rem;
       line-height: 1.4;
       margin-left: 5rem;
+
+      @media only screen and (max-width: 1100px) {
+        font-size: 1.8rem;
+      }
+
+      @media only screen and (max-width: 750px) {
+        margin-top: 1.4rem;
+        margin-left: 0;
+      }
     }
   }
 }

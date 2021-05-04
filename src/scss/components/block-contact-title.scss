@@ -3,17 +3,36 @@
   align-items: center;
   position: relative;
 
+  @media only screen and (max-width: 1370px) {
+    justify-content: space-between;
+  }
+
   &__title {
+    width: calc(100% - 40rem);
     h1 {
       white-space: nowrap;
+
+      @media only screen and (max-width: 1370px) {
+        width: calc(100% - 35rem);
+      }
     }
+    margin-right: 5rem;
   }
 
   &__img {
     width: 40rem;
     position: absolute;
-    right: 0;
+    right: 5rem;
     top: 3rem;
+
+    @media only screen and (max-width: 1370px) {
+      position: relative;
+      width: 35rem;
+    }
+
+    @media only screen and (max-width: 1270px) {
+      display: none;
+    }
 
     img {
       width: 100%;

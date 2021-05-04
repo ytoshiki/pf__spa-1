@@ -7,10 +7,10 @@ export const contactPageReveal = () => {
   const tl = gsap.timeline();
 
   tl.from('.c-block-contact-title__title', {
-    y: 20,
+    y: 10,
     opacity: 0,
-    duration: 1,
-    delay: 0.3
+    duration: 0.7,
+    delay: 0.75
   })
     .from('.c-block-contact__address', {
       y: 20,
@@ -26,6 +26,6 @@ export const contactPageReveal = () => {
   gsap.from('.c-block-contact-title__img', {
     opacity: 0,
     duration: 2,
-    delay: 2
+    delay: 2.7
   });
 };

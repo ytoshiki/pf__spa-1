@@ -12,6 +12,9 @@ header {
   justify-content: center;
   align-items: center;
 
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
 
   ul {
     display: flex;
@@ -26,17 +29,20 @@ header {
     transform: rotate(-90deg);
     white-space: nowrap;
     margin-top: 8rem;
+    padding-bottom: 0.5rem;
+
+    &.is-current {
+      border-bottom: 1px solid #6b6a6a;
+    }
   }
 
   a {
     color: #6b6a6a;
-  
-
   }
 
   &.is-white {
     a {
-      color:#878686 !important;
+      color: #878686 !important;
     }
   }
 }

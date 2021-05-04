@@ -9,12 +9,18 @@
     position: relative;
     display: flex;
     align-items: center;
-
-    &:not(:last-child) {
-    }
+    cursor: pointer;
 
     &:hover .c-block-works-list__image::before {
       width: 0;
+    }
+
+    @media only screen and (max-width: 750px) {
+      margin-top: 3rem;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 
@@ -25,6 +31,14 @@
   &__title {
     font-size: 7rem;
     letter-spacing: 0.1em;
+
+    @media only screen and (max-width: 1100px) {
+      font-size: 5rem;
+    }
+
+    @media only screen and (max-width: 750px) {
+      font-size: 3rem;
+    }
   }
 
   &__text {
@@ -35,6 +49,15 @@
     width: 30rem;
     position: relative;
     margin-right: 4rem;
+
+    @media only screen and (max-width: 1100px) {
+      width: 20rem;
+    }
+
+    @media only screen and (max-width: 750px) {
+      display: none;
+    }
+
     &::before {
       content: '';
       position: absolute;

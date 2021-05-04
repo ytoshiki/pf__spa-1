@@ -1,18 +1,42 @@
 .l-section {
   &.is-lg {
-    margin-bottom: 9rem;
-    margin-top: 9rem;
+    padding-bottom: 9rem;
+    padding-top: 9rem;
+
+    @media only screen and (max-width: 1100px) {
+      padding-bottom: 5rem !important;
+      padding-top: 5rem !important;
+    }
   }
   &.is-xlg {
-    margin-top: 16rem;
-    margin-bottom: 16rem;
+    padding-top: 16rem;
+    padding-bottom: 16rem;
+
+    @media only screen and (max-width: 1100px) {
+      padding-bottom: 8rem !important;
+      padding-top: 8rem !important;
+    }
   }
 
   &.is-top {
-    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   &.is-bottom {
-    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  &.is-main {
+    margin-top: 6rem;
+
+    @media only screen and (max-width: 500px) {
+      margin-top: 4rem;
+    }
+  }
+
+  &.is-hidden {
+    @media only screen and (max-width: 1100px) {
+      display: none !important;
+    }
   }
 }

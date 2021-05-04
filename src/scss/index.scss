@@ -8,6 +8,8 @@
 @use "layout/footer.scss";
 @use "layout/section.scss";
 @use "layout/main.scss";
+@use "layout/main-header.scss";
+@use "layout/menu.scss";
 
 // Components
 @use "components/heading.scss";
@@ -18,6 +20,7 @@
 @use "components/block-approach-img.scss";
 @use "components/box-approach-services.scss";
 @use "components/box-approach-about.scss";
+@use "components/box-works-parallex.scss";
 
 @use "components/block-studio-images.scss";
 @use "components/box-studio-values.scss";

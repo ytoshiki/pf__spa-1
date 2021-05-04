@@ -1,6 +1,7 @@
 import Rellax from 'rellax';
 
-var rellax = new Rellax('.rellax', {
-  vertical: true
-});
-
+export const initRellax = () => {
+  const rellax = new Rellax('.rellax', {
+    vertical: true
+  });
+};

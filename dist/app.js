@@ -18702,12 +18702,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _gsap_loading__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../gsap/loading */ "./src/js/animation/gsap/loading.js");
 /* harmony import */ var _gsap_studio__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../gsap/studio */ "./src/js/animation/gsap/studio.js");
 /* harmony import */ var _gsap_works__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../gsap/works */ "./src/js/animation/gsap/works.js");
+/* harmony import */ var _parallex__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../parallex */ "./src/js/animation/parallex/index.js");
 
 
 
 
 
 gsap__WEBPACK_IMPORTED_MODULE_1__["default"].registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
 
 
 
@@ -18729,8 +18731,6 @@ const killOldTriggers = () => {
   triggers.forEach((trigger) => {
     trigger.kill();
   });
-
-  console.log('killed');
 };
 
 _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.beforeEnter(({ current, next }) => {
@@ -18750,6 +18750,8 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.enter(({ current, next 
   });
 
   new _script__WEBPACK_IMPORTED_MODULE_3__["default"]();
+  Object(_parallex__WEBPACK_IMPORTED_MODULE_9__["initRellax"])();
+  window.scrollTo(0, 0);
 
   return enterPromiseAll;
 });
@@ -18778,7 +18780,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
           gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from('.c-block-approach-title', {
             y: 20,
             opacity: 0,
-            duration: 2,
+            duration: 0.5,
             delay: 0.75
           });
 
@@ -18787,6 +18789,8 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
       },
       once(data) {
         new _script__WEBPACK_IMPORTED_MODULE_3__["default"]();
+        Object(_parallex__WEBPACK_IMPORTED_MODULE_9__["initRellax"])();
+
         if (data.next.url.path == paths.studio) {
           Object(_gsap_loading__WEBPACK_IMPORTED_MODULE_6__["defaultLoading"])();
           Object(_gsap_studio__WEBPACK_IMPORTED_MODULE_7__["studioPageScroll"])();
@@ -18803,7 +18807,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
           gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from('.c-block-approach-title', {
             y: 20,
             opacity: 0,
-            duration: 2,
+            duration: 0.5,
             delay: 0.75
           });
 
@@ -18814,47 +18818,6 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     }
   ]
 });
-
-
-/***/ }),
-
-/***/ "./src/js/animation/function.js":
-/*!**************************************!*\
-  !*** ./src/js/animation/function.js ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// import gsap from 'gsap';
-
-// export const delay = (n = 2000) => {
-//   return new Promise((done) => {
-//     setTimeout(() => {
-//       done();
-//     }, n);
-//   });
-// };
-
-// export const pageTansition = () => {
-//   const tl = gsap.timeline();
-
-//   tl.to('.loading-screen', {
-//     duration: 0.9,
-//     bottom: '0%',
-//     height: '100%',
-//     ease: 'Expo.easeInOut'
-//   });
-
-//   tl.to('.loading-screen', {
-//     duration: 0.7,
-//     height: '100%',
-//     bottom: '100%',
-//     ease: 'Expo.easeInOut',
-//     delay: 0.2
-//   });
-
-//   tl.set('.loading-screen', { bottom: '-100%' });
-// };
 
 
 /***/ }),
@@ -18982,10 +18945,10 @@ const contactPageReveal = () => {
   const tl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
 
   tl.from('.c-block-contact-title__title', {
-    y: 20,
+    y: 10,
     opacity: 0,
-    duration: 1,
-    delay: 0.3
+    duration: 0.7,
+    delay: 0.75
   })
     .from('.c-block-contact__address', {
       y: 20,
@@ -19001,7 +18964,7 @@ const contactPageReveal = () => {
   gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-block-contact-title__img', {
     opacity: 0,
     duration: 2,
-    delay: 2
+    delay: 2.7
   });
 };
 
@@ -19071,6 +19034,17 @@ const topPageScroll = () => {
 
   //   duration: 1
   // });
+
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-box-approach-about__item', {
+    scrollTrigger: {
+      trigger: '.c-box-approach-about__list',
+      start: 'top center'
+    },
+    opacity: 0,
+    y: 30,
+    duration: 0.7,
+    stagger: 0.2
+  });
 
   gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-box-approach-services__img', {
     scrollTrigger: {
@@ -19154,28 +19128,31 @@ const studioPageScroll = () => {
   const scrollEndHeightStaff = document.querySelector('.c-box-studio-staff__list').clientHeight;
 
   gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-block-approach-title', {
-    y: 20,
+    y: 10,
     opacity: 0,
-    duration: 2,
+    duration: 0.4,
     delay: 0.75
   });
 
   // Animation for Values
-  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to('.c-box-studio-values__heading', {
-    duration: 1,
-    scrollTrigger: {
-      trigger: '.c-box-studio-values__inner',
-      start: 'top 10%',
-      pin: '.c-box-studio-values__heading',
-      end: `top -${scrollEndHeightValue - 160}px`
-    }
-  });
+
+  if (document.body.clientWidth > 750) {
+    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to('.c-box-studio-values__heading', {
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.c-box-studio-values__inner',
+        start: 'top 10%',
+        pin: '.c-box-studio-values__heading',
+        end: `top -${scrollEndHeightValue - 200}px`
+      }
+    });
+  }
 
   gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-box-studio-values__text', {
     opacity: 0,
-    duration: 2,
-    stagger: 0.4,
-    y: 30,
+    duration: 1,
+    stagger: 0.6,
+    y: 20,
     scrollTrigger: {
       trigger: 'c-box-studio-values__list',
       start: 'top top'
@@ -19210,6 +19187,22 @@ const studioPageScroll = () => {
     }
   );
 
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(
+    gsap_all__WEBPACK_IMPORTED_MODULE_1__["CSSRulePlugin"].getRule('.c-box-studio-accent-sec__fade:before'),
+    {
+      left: 0
+    },
+    {
+      left: '100%',
+      duration: 1,
+      ease: 'Expo.easeInOut',
+      scrollTrigger: {
+        trigger: '.c-box-studio-accent-sec',
+        start: 'top center'
+      }
+    }
+  );
+
   gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-box-studio-accent__text', {
     y: 30,
     duration: 1.2,
@@ -19220,15 +19213,39 @@ const studioPageScroll = () => {
     }
   });
 
-  // Animation for staff
-  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to('.c-box-studio-staff__heading', {
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-box-studio-accent-sec__text', {
+    y: 30,
+    duration: 1.2,
+    opacity: 0,
     scrollTrigger: {
-      trigger: '.c-box-studio-staff__inner',
-      start: 'top 10%',
-      pin: '.c-box-studio-staff__heading',
-      end: `top -${scrollEndHeightStaff - 170}px`
+      trigger: '.c-box-studio-accent-sec',
+      start: 'top center'
     }
   });
+
+  // Animation for staff
+
+  if (document.body.clientWidth > 750) {
+    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to('.c-box-studio-staff__heading', {
+      scrollTrigger: {
+        trigger: '.c-box-studio-staff__inner',
+        start: 'top 10%',
+        pin: '.c-box-studio-staff__heading',
+        end: `top -${scrollEndHeightStaff - 210}px`
+      }
+    });
+  }
+
+  // gsap.from('.c-box-studio-job__item', {
+  //   opacity: 0,
+  //   duration: 1,
+  //   stagger: 0.6,
+  //   y: 20,
+  //   scrollTrigger: {
+  //     trigger: '.c-box-studio-job__list',
+  //     start: 'top top'
+  //   }
+  // });
 };
 
 
@@ -19259,12 +19276,12 @@ const worksReveal = () => {
   tl.from('.c-block-works-top__title', {
     y: 20,
     opacity: 0,
-    duration: 1,
+    duration: 0.6,
     delay: 0.75
   }).from('.c-block-works-top__image', {
     opacity: 0,
     x: 20,
-    duration: 1
+    duration: 0.8
   });
 };
 
@@ -19296,6 +19313,17 @@ const worksPageScroll = () => {
       start: 'top center'
     }
   });
+
+  gsap__WEBPACK_IMPORTED_MODULE_0__["default"].from('.c-block-works-list__item', {
+    y: 40,
+    duration: 1.2,
+    opacity: 0,
+    stagger: 0.3,
+    scrollTrigger: {
+      trigger: '.c-block-works-list__list',
+      start: 'top center'
+    }
+  });
 };
 
 
@@ -19311,29 +19339,7 @@ const worksPageScroll = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _barba__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./barba */ "./src/js/animation/barba/index.js");
-// import barba from '@barba/core';
 
-// // leave is executed when leaving
-// // Enter is executed when entering
-
-// barba.init({
-//   // to is used to specify which to which
-//   sync: true,
-//   transitions: [
-//     // {
-//     //   name: 'scrollMagic',
-//     //   to: {
-//     //     namespace: ['scrollMagic']
-//     //   },
-//     //   enter() {
-//     //     triggerScrollMagic();
-//     //   },
-//     //   once() {
-//     //     triggerScrollMagic();
-//     //   }
-//     // }
-//   ]
-// });
 
 
 /***/ }),
@@ -19342,19 +19348,21 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************!*\
   !*** ./src/js/animation/parallex/index.js ***!
   \********************************************/
-/*! no exports provided */
+/*! exports provided: initRellax */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initRellax", function() { return initRellax; });
 /* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rellax */ "./node_modules/rellax/rellax.js");
 /* harmony import */ var rellax__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(rellax__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var rellax = new rellax__WEBPACK_IMPORTED_MODULE_0___default.a('.rellax', {
-  vertical: true
-});
-
+const initRellax = () => {
+  const rellax = new rellax__WEBPACK_IMPORTED_MODULE_0___default.a('.rellax', {
+    vertical: true
+  });
+};
 
 
 /***/ }),
@@ -19434,13 +19442,7 @@ const triggerScrollMagic = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animation */ "./src/js/animation/index.js");
-/* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./script */ "./src/js/script.js");
 
-
-
-// window.addEventListener('load', () => {
-//   new EventListener();
-// });
 
 
 /***/ }),
@@ -19456,13 +19458,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var gsap_all__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/all.js");
+/* harmony import */ var gsap_gsap_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/gsap-core */ "./node_modules/gsap/gsap-core.js");
+
 
 
 gsap__WEBPACK_IMPORTED_MODULE_0__["default"].registerPlugin(gsap_all__WEBPACK_IMPORTED_MODULE_1__["CSSRulePlugin"]);
 
 class EventListener {
   constructor() {
-    this.init();
+    (this.initial = true), this.init();
     this.targets = {
       webMob: {
         name: 'web&amp;mobile development',
@@ -19492,6 +19496,16 @@ class EventListener {
   }
 
   init() {
+    // For Each Page(Menu)
+
+    this.menu = document.querySelector('.l-main-header__container');
+    this.initial = true;
+
+    if (this.menu) {
+      this.listenMenu();
+    }
+
+    // For Index Page
     this.toggleList = document.querySelectorAll('.c-box-approach-services__item');
     this.image = document.querySelector('.c-box-approach-services__jpg');
     this.title = document.querySelector('.c-box-approach-services__title');
@@ -19512,6 +19526,39 @@ class EventListener {
         },
         false
       );
+    });
+  }
+
+  listenMenu() {
+    const menuHidden = document.querySelector('.l-menu');
+
+    let tl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
+
+    this.menu.addEventListener('click', (e) => {
+      if (!this.menu.className.includes('change')) {
+        if (this.initial) {
+          tl.from('.l-menu__item', {
+            opacity: 0,
+            y: 20,
+            stagger: 0.1,
+            duration: 0.3
+          });
+
+          this.initial = false;
+        } else {
+          tl.restart();
+        }
+
+        this.menu.classList.toggle('change');
+        menuHidden.classList.toggle('visible');
+      } else {
+        tl.reverse();
+
+        setTimeout(() => {
+          this.menu.classList.toggle('change');
+          menuHidden.classList.toggle('visible');
+        }, 1000);
+      }
     });
   }
 
@@ -19548,7 +19595,6 @@ class EventListener {
       }, 1000);
     }
 
-    console.log('No Match');
     return;
   }
 
@@ -19609,15 +19655,14 @@ class EventListener {
 /***/ }),
 
 /***/ 0:
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./src/js/app.js ./src/js/script.js ./src/js/animation/function.js ./src/js/animation/index.js ./src/js/animation/barba/index.js ./src/js/animation/gsap/contact.js ./src/js/animation/gsap/index.js ./src/js/animation/gsap/loading.js ./src/js/animation/gsap/studio.js ./src/js/animation/gsap/works.js ./src/js/animation/gsap copy/index.js ./src/js/animation/gsap copy/loading.js ./src/js/animation/gsap copy/studio.js ./src/js/animation/parallex/index.js ./src/js/animation/scrollMagic/index.js ./src/js/animation/scrollReveal/index.js ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./src/js/app.js ./src/js/script.js ./src/js/animation/index.js ./src/js/animation/barba/index.js ./src/js/animation/gsap/contact.js ./src/js/animation/gsap/index.js ./src/js/animation/gsap/loading.js ./src/js/animation/gsap/studio.js ./src/js/animation/gsap/works.js ./src/js/animation/gsap copy/index.js ./src/js/animation/gsap copy/loading.js ./src/js/animation/gsap copy/studio.js ./src/js/animation/parallex/index.js ./src/js/animation/scrollMagic/index.js ./src/js/animation/scrollReveal/index.js ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\app.js */"./src/js/app.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\script.js */"./src/js/script.js");
-__webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\function.js */"./src/js/animation/function.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\index.js */"./src/js/animation/index.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\barba\index.js */"./src/js/animation/barba/index.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\contact.js */"./src/js/animation/gsap/contact.js");

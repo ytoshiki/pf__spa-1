@@ -9,12 +9,12 @@ export const worksReveal = () => {
   tl.from('.c-block-works-top__title', {
     y: 20,
     opacity: 0,
-    duration: 1,
+    duration: 0.6,
     delay: 0.75
   }).from('.c-block-works-top__image', {
     opacity: 0,
     x: 20,
-    duration: 1
+    duration: 0.8
   });
 };
 
@@ -43,6 +43,17 @@ export const worksPageScroll = () => {
     opacity: 0,
     scrollTrigger: {
       trigger: '.c-box-works-accent',
+      start: 'top center'
+    }
+  });
+
+  gsap.from('.c-block-works-list__item', {
+    y: 40,
+    duration: 1.2,
+    opacity: 0,
+    stagger: 0.3,
+    scrollTrigger: {
+      trigger: '.c-block-works-list__list',
       start: 'top center'
     }
   });

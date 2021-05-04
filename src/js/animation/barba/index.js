@@ -8,6 +8,7 @@ import { topPageScroll } from '../gsap/index';
 import { defaultLoading } from '../gsap/loading';
 import { studioPageScroll } from '../gsap/studio';
 import { worksPageScroll, worksReveal } from '../gsap/works';
+import { initRellax } from '../parallex';
 
 // leave is executed when leaving
 // Enter is executed when entering
@@ -25,8 +26,6 @@ const killOldTriggers = () => {
   triggers.forEach((trigger) => {
     trigger.kill();
   });
-
-  console.log('killed');
 };
 
 barba.hooks.beforeEnter(({ current, next }) => {
@@ -46,6 +45,8 @@ barba.hooks.enter(({ current, next }) => {
   });
 
   new EventListener();
+  initRellax();
+  window.scrollTo(0, 0);
 
   return enterPromiseAll;
 });
@@ -74,7 +75,7 @@ barba.init({
           gsap.from('.c-block-approach-title', {
             y: 20,
             opacity: 0,
-            duration: 2,
+            duration: 0.5,
             delay: 0.75
           });
 
@@ -83,6 +84,8 @@ barba.init({
       },
       once(data) {
         new EventListener();
+        initRellax();
+
         if (data.next.url.path == paths.studio) {
           defaultLoading();
           studioPageScroll();
@@ -99,7 +102,7 @@ barba.init({
           gsap.from('.c-block-approach-title', {
             y: 20,
             opacity: 0,
-            duration: 2,
+            duration: 0.5,
             delay: 0.75
           });
 

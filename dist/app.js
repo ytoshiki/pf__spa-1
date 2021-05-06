@@ -19656,7 +19656,7 @@ class EventListener {
 
 /***/ 0:
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./src/js/app.js ./src/js/script.js ./src/js/animation/index.js ./src/js/animation/gsap/contact.js ./src/js/animation/gsap/index.js ./src/js/animation/gsap/loading.js ./src/js/animation/gsap/studio.js ./src/js/animation/gsap/works.js ./src/js/animation/barba/index.js ./src/js/animation/gsap copy/index.js ./src/js/animation/gsap copy/loading.js ./src/js/animation/gsap copy/studio.js ./src/js/animation/parallex/index.js ./src/js/animation/scrollMagic/index.js ./src/js/animation/scrollReveal/index.js ***!
+  !*** multi ./src/js/app.js ./src/js/script.js ./src/js/animation/index.js ./src/js/animation/barba/index.js ./src/js/animation/gsap/contact.js ./src/js/animation/gsap/index.js ./src/js/animation/gsap/loading.js ./src/js/animation/gsap/studio.js ./src/js/animation/gsap/works.js ./src/js/animation/gsap copy/index.js ./src/js/animation/gsap copy/loading.js ./src/js/animation/gsap copy/studio.js ./src/js/animation/parallex/index.js ./src/js/animation/scrollMagic/index.js ./src/js/animation/scrollReveal/index.js ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -19664,12 +19664,12 @@ class EventListener {
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\app.js */"./src/js/app.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\script.js */"./src/js/script.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\index.js */"./src/js/animation/index.js");
+__webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\barba\index.js */"./src/js/animation/barba/index.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\contact.js */"./src/js/animation/gsap/contact.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\index.js */"./src/js/animation/gsap/index.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\loading.js */"./src/js/animation/gsap/loading.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\studio.js */"./src/js/animation/gsap/studio.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap\works.js */"./src/js/animation/gsap/works.js");
-__webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\barba\index.js */"./src/js/animation/barba/index.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap copy\index.js */"./src/js/animation/gsap copy/index.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap copy\loading.js */"./src/js/animation/gsap copy/loading.js");
 __webpack_require__(/*! C:\Users\吉岡寿輝\Desktop\develop\pf__spa-1\src\js\animation\gsap copy\studio.js */"./src/js/animation/gsap copy/studio.js");
